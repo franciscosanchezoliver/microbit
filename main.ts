@@ -1,15 +1,19 @@
-input.onButtonPressed(Button.A, function on_button_pressed_a() {
-    for (let index = 0; index < 1; index++) {
-        music.play(music.stringPlayable("- E E - E - - - ", 120), music.PlaybackMode.UntilDone)
+input.onButtonPressed(Button.A, function () {
+    counter = counter + -1
+    if (counter < 0) {
+        basic.showString("NO")
+        counter = 0
+    } else {
+        basic.showString("" + counter)
     }
 })
-input.onGesture(Gesture.Shake, function on_gesture_shake() {
+input.onGesture(Gesture.Shake, function () {
     basic.clearScreen()
 })
-input.onButtonPressed(Button.B, function on_button_pressed_b() {
-    basic.showIcon(IconNames.Heart)
+input.onButtonPressed(Button.B, function () {
+    counter = counter + 1
+    basic.showString("" + counter)
 })
-basic.showString("Caution!")
-basic.forever(function on_forever() {
-    
-})
+let counter = 0
+basic.showString("" + counter)
+counter = 0
